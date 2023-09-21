@@ -6,25 +6,19 @@ using UnityEngine.Rendering;
 public class FadeInOut : MonoBehaviour
 {
     [SerializeField] private Material _material;
-    public float alpha = 0;
+    [SerializeField] ElectricScooter Scooter;
+    float alpha = 0;
     public bool FadingEvent;
     public float FadingTimer;
 
-
-    void Update()
+    public void Fade()
     {
-        // Set timer to prevent unnecessary updating
-        if(FadingTimer < 5)
-        {
-            FadingTimer += Time.deltaTime;
+        if (FadingEvent == true) FadeIn(alpha);
+        else if (FadingEvent == false) FadeOut(alpha);
 
-            if (FadingEvent == true) FadeIn(alpha);
-            else if (FadingEvent == false) FadeOut(alpha);
-
-            Color color = _material.color;
-            color.a = alpha;
-            _material.color = color;
-        }
+        Color color = _material.color;
+        color.a = alpha;
+        _material.color = color;
     }
 
     // Increase A value to turn into black
