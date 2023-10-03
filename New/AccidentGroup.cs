@@ -27,7 +27,6 @@ public class AccidentGroup : MonoBehaviour
                 Accident.SetActive(true);
                 ES.ChangeAccident = true;
             }
-
         }
 
         if (ES.AccidentTimerStart)
